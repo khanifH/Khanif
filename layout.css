@@ -15,13 +15,12 @@ body {
 }
 
 section {
-  width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 100px 80px;
-  box-sizing: border-box;
 }
 
 /* =============================
@@ -31,7 +30,6 @@ section {
   background: linear-gradient(to bottom, #151610 100%, #70755d);
   text-align: center;
   position: relative;
-  height: 100vh;
 }
 
 .top-bar {
@@ -51,7 +49,7 @@ section {
 }
 
 .signature {
-  font-family: 'Times New Roman', cursive;
+  font-family: 'Times new roman', cursive;
   font-size: 3rem;
   color: rgba(255, 255, 255, 0.9);
   margin-top: -20px;
@@ -71,18 +69,17 @@ section {
 }
 
 /* =============================
-   INTRODUCTION SECTION (Final VSCode Layout)
+   INTRODUCTION SECTION
    ============================= */
 .intro {
   background-color: #151610;
   color: #151610;
   text-align: center;
   padding-top: 180px;
-  padding-bottom: 120px;
+  padding-bottom: 140px;
   position: relative;
   overflow: hidden;
 }
-
 .intro-container {
   position: relative;
   display: flex;
@@ -90,41 +87,57 @@ section {
   align-items: center;
   justify-content: center;
 }
-
 .intro-title {
   font-size: 7rem;
   font-weight: 900;
   text-transform: lowercase;
-  color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.138);
   letter-spacing: -5px;
   position: relative;
-  z-index: 1;
-  margin-bottom: 0;
-  top: 50px; /* dari 50px → 20px biar naik dikit */
+  z-index: 2;
 }
-
 
 .intro-photo img {
   width: 320px;
   position: absolute;
-  bottom: -20px; /* lebih nempel ke card */
+  bottom: -60px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 2;
+  z-index: 1;
+  opacity: 0.9;
+  filter: brightness(100%) drop-shadow(0px 25px 40px rgba(0, 0, 0, 0.3));
+  transition: transform 0.6s ease, filter 0.6s ease;
 }
-
-
 
 .intro-photo img:hover {
   transform: translateX(-50%) scale(1.05);
-  filter: drop-shadow(0px 35px 50px rgba(0, 0, 0, 0.6));
+  filter: brightness(100%) drop-shadow(0px 30px 50px rgba(0, 0, 0, 0.5));
 }
 
 .intro-card {
-  margin-top: 100px; /* biar lebih deket ke foto */
+  background: #fff;
+  color: #333;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  max-width: 900px;
+  margin-top: 50px;
   padding: 35px 45px;
+  line-height: 1.8;
+  text-align: justify;
+  font-size: 1.05rem;
+  z-index: 2;
+  position: relative;
 }
 
+.intro::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to bottom, rgba(119,123,100,0) 0%, #151610 100%);
+}
 
 /* =============================
    GALLERY SECTION
@@ -137,9 +150,9 @@ section {
 .works-title {
   font-size: 5rem;
   font-weight: 800;
-  margin-bottom: 10px;
+  margin-bottom: 1px;
   text-transform: uppercase;
-  color: #f6b102;
+  letter-spacing: 1px;
 }
 
 .works-desc {
@@ -152,7 +165,7 @@ section {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 50px;
   max-width: 900px;
   margin: 0 auto;
 }
@@ -183,121 +196,172 @@ section {
   margin-bottom: 10px;
 }
 
-.software-item a {
-  text-decoration: none;
-  color: #f6b102;
+/* Efek khusus */
+.software-item img[alt="Canva Logo"],
+.software-item img[alt="videography"],
+.software-item img[alt="photography"] {
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 6px;
 }
 
-.software-item a:hover {
-  color: #ffcc33;
+.footer {
+  margin-top: 70px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  color: #e0e0e0;
 }
 
 /* =============================
    EXPERIENCE SECTION
    ============================= */
 .experience {
-  background-color: #0f100c;
-  color: #f6b102;
+  background-color: #151610; /* warna sama seperti gallery */
+  color: #fff;
   text-align: center;
-  padding: 100px 30px;
+  padding: 120px 80px;
 }
 
 .experience-title {
-  font-size: 4.5rem;
+  font-size: 4rem;
   font-weight: 800;
+  color: #f6b102;
+  margin-bottom: 70px;
   text-transform: uppercase;
-  margin-bottom: 40px;
+  letter-spacing: 2px;
 }
 
 .experience-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 25px;
+  gap: 40px;
   max-width: 900px;
   margin: 0 auto;
 }
 
 .experience-item {
-  background-color: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.07);
   border-radius: 20px;
-  padding: 30px;
-  width: 100%;
-  color: #fff;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  text-align: left;
-  transition: transform 0.3s ease;
+  padding: 30px 40px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+  backdrop-filter: blur(4px);
 }
 
 .experience-item:hover {
-  transform: scale(1.02);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 0 25px rgba(246, 177, 2, 0.25);
 }
 
 .experience-item h2 {
   color: #f6b102;
-  font-size: 1.5rem;
-  margin-bottom: 10px;
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .experience-item p {
-  color: #ddd;
+  color: #e0e0e0;
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.7;
+  text-align: justify;
 }
 
 /* =============================
-   FOOTER
+   RESPONSIVE EXPERIENCE
    ============================= */
-.footer {
-  margin-top: 60px;
+@media (max-width: 900px) {
+  .experience {
+    padding: 80px 30px;
+  }
+
+  .experience-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+  }
+
+  .experience-item {
+    padding: 20px 25px;
+  }
+
+  .experience-item h2 {
+    font-size: 1.2rem;
+  }
+
+  .experience-item p {
+    font-size: 0.95rem;
+  }
+}
+
+
+
+
+/* =============================
+   LINK STYLE DALAM SOFTWARE ITEM
+   ============================= */
+.software-item a {
+  text-decoration: none;
+  color: #f6b102;
   display: flex;
-  justify-content: space-between;
-  font-size: 1rem;
-  color: #e0e0e0;
-  flex-wrap: wrap;
-  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.software-item a:hover {
+  color: #ffcc33;
+  transform: scale(1.05);
+  transition: 0.3s ease;
+}
+
+.software-item a:visited {
+  color: #f6b102;
+}
+
+/* =============================
+   ANIMATION EFFECTS
+   ============================= */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px) scale(0.97);
+  transition: all 1s ease;
+}
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 /* =============================
    RESPONSIVE DESIGN
    ============================= */
-@media (max-width: 1024px) {
-  .portfolio-text { font-size: 5rem; }
-  .intro-title { font-size: 5rem; }
-  .experience-title { font-size: 3.5rem; }
+@media (max-width: 900px) {
+  section {
+    padding: 80px 30px;
+  }
+  .portfolio-text {
+    font-size: 4.5rem;
+  }
+  .intro-title {
+    font-size: 4rem;
+  }
+  .intro-photo img {
+    width: 200px;
+  }
+  .intro-card {
+    padding: 20px;
+    font-size: 0.95rem;
+  }
+  .works-title {
+    font-size: 3rem;
+  }
+  .footer {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
 }
-
-@media (max-width: 768px) {
-  section { padding: 70px 30px; }
-  .portfolio-text { font-size: 4rem; }
-  .signature { font-size: 2.5rem; }
-  .intro-photo img { width: 240px; bottom: -60px; }
-  .intro-card { margin-top: 160px; padding: 25px; font-size: 1rem; }
-  .software-item { width: 110px; height: 110px; }
-  .experience-title { font-size: 3rem; }
-}
-
-@media (max-width: 600px) {
-  .portfolio-text { font-size: 3rem; }
-  .signature { font-size: 1.8rem; }
-  .top-bar { top: 20px; left: 25px; font-size: 0.9rem; }
-  .intro-title { font-size: 3rem; top: 35px; }
-  .intro-photo img { width: 180px; bottom: -45px; }
-  .intro-card { margin-top: 130px; padding: 20px; font-size: 0.9rem; }
-  .software-grid { gap: 20px; }
-  .software-item img { width: 50px; height: 50px; }
-  .experience { padding: 60px 20px; }
-  .experience-title { font-size: 2.3rem; margin-bottom: 25px; }
-  .experience-item { padding: 20px; }
-  .experience-item h2 { font-size: 1.1rem; }
-  .experience-item p { font-size: 0.9rem; }
-  .footer { flex-direction: column; align-items: center; text-align: center; }
-}
-
-
-
-
-
-
-
 
